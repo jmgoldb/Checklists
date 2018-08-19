@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChecklistItem: Equatable {
+class ChecklistItem: Equatable, Codable {
     var text = ""
     var checked = false
     

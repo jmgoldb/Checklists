@@ -8,12 +8,18 @@
 
 import Foundation
 
-class ChecklistItem {
+class ChecklistItem: Equatable {
     var text = ""
     var checked = false
     
     func toggleChecked() {
         checked = !checked
+    }
+    
+    static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
+        return
+            lhs.checked == rhs.checked &&
+            lhs.text == rhs.text
     }
 }
 

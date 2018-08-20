@@ -8,8 +8,9 @@
 
 import Foundation
 
-class Checklist: Equatable {
+class Checklist: Equatable, Codable {
     var name = ""
+    var items: [ChecklistItem] = []
     
     init(name: String) {
         self.name = name

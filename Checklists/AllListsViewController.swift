@@ -106,6 +106,17 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         //saveChecklistItems()
     }
     
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        // Tutorial keeps force casting, tired of modifying it to be more gentle, don't want to derail from tutorial's path/design so just going to leave it in from here on out
+        let controller = storyboard!.instantiateViewController(withIdentifier: "ListDetailViewController") as! ListDetailViewController
+        controller.delegate = self
+        
+        let checklist = lists[indexPath.row]
+        controller.checklistToEdit = checklist
+        
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
